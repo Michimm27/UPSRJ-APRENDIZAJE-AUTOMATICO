@@ -8,6 +8,7 @@
 # Descripción: Ejercicios básicos de manejo de pandas
 # ============================================================
 import pandas as pd
+import os
 #########################################################################
 # NOTE: Revisa la API de Pandas en https://pandas.pydata.org/docs/      #
 #########################################################################
@@ -180,6 +181,8 @@ def export_data(df: pd.DataFrame, file: str) -> None:
     Retorna:
     - None
     """
+    if not os.path.exists(os.path.dirname(file)):
+        os.mkdir(os.path.dirname(file))
     df.to_csv(file, index=False) 
 
 # Ejercicio 9
